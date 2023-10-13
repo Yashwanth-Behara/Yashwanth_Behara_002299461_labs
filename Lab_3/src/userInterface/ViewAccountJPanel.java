@@ -8,6 +8,7 @@ import business.Account;
 import business.AccountDirectory;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
@@ -218,9 +219,15 @@ public class ViewAccountJPanel extends javax.swing.JPanel {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
+
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
+        
+        Component component = userProcessContainer.getComponent(userProcessContainer.getComponentCount() - 1);
+        if(component instanceof ManageAccountJPanel manageAccountPanel) {
+            manageAccountPanel.populateTable();
+        }
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
