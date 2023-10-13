@@ -40,7 +40,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        accManageBtn.setText("Manage Account");
+        accManageBtn.setBackground(new java.awt.Color(153, 204, 255));
+        accManageBtn.setText("Manage Accounts");
         accManageBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 accManageBtnActionPerformed(evt);

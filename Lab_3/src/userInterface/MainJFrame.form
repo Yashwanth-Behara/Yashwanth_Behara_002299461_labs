@@ -70,7 +70,10 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="accManageBtn">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Manage Account"/>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="cc" red="99" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Manage Accounts"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="accManageBtnActionPerformed"/>

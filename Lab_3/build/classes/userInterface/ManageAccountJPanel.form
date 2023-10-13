@@ -21,14 +21,16 @@
               <Component id="backBtn" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="deleteBtn" min="-2" max="-2" attributes="0"/>
-                  <Component id="viewBtn" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="searchBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="443" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="deleteBtn" alignment="0" max="32767" attributes="0"/>
+                          <Component id="searchBtn" max="32767" attributes="0"/>
+                          <Component id="viewBtn" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Component id="searchTxtField" min="-2" pref="135" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" min="-2" pref="443" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="201" max="32767" attributes="0"/>
           </Group>

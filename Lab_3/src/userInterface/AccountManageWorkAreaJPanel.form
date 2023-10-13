@@ -18,9 +18,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="manageAccBtn" min="-2" max="-2" attributes="0"/>
-                  <Component id="createAccBtn" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="manageAccBtn" max="32767" attributes="0"/>
+                  <Component id="createAccBtn" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="548" max="32767" attributes="0"/>
           </Group>
