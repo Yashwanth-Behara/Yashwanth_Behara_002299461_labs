@@ -18,33 +18,29 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="314" max="-2" attributes="0"/>
-                      <Component id="createBtn" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="321" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="121" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="228" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="routingNoLbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="accNoLbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="bankNameLbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="balanceLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="routingNoLbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="accNoLbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="bankNameLbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="saveBtn" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="routingNoTxtField" max="32767" attributes="0"/>
+                          <Component id="routingNoTxtField" alignment="0" pref="113" max="32767" attributes="0"/>
                           <Component id="accNoTxtField" alignment="0" max="32767" attributes="0"/>
                           <Component id="bankNameTxtField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="balanceTxtField" alignment="0" min="-2" pref="113" max="-2" attributes="0"/>
+                          <Component id="updateBtn" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Component id="backBtn" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="289" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="121" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="311" max="32767" attributes="0"/>
@@ -54,9 +50,9 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="43" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="routingNoLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="routingNoTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -71,14 +67,12 @@
                   <Component id="bankNameLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="bankNameTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="balanceLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="balanceTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="saveBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="updateBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-              <Component id="createBtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
               <Component id="backBtn" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="245" max="32767" attributes="0"/>
           </Group>
@@ -86,6 +80,35 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
+    <Component class="javax.swing.JTextField" name="routingNoTxtField">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="routingNoTxtFieldActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="accNoTxtField">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="accNoTxtFieldActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="bankNameTxtField">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="saveBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Save"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveBtnActionPerformed"/>
+      </Events>
+    </Component>
     <Component class="javax.swing.JButton" name="backBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="&lt;&lt; Back"/>
@@ -96,7 +119,8 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Create Account"/>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="View Account"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="routingNoLbl">
@@ -114,31 +138,12 @@
         <Property name="text" type="java.lang.String" value="Bank Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="balanceLbl">
+    <Component class="javax.swing.JButton" name="updateBtn">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Balance"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="routingNoTxtField">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="routingNoTxtFieldActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="accNoTxtField">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="accNoTxtFieldActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="bankNameTxtField">
-    </Component>
-    <Component class="javax.swing.JTextField" name="balanceTxtField">
-    </Component>
-    <Component class="javax.swing.JButton" name="createBtn">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Create"/>
+        <Property name="text" type="java.lang.String" value="Update"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createBtnActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateBtnActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

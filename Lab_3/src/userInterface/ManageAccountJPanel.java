@@ -5,8 +5,15 @@
 
 package userInterface;
 
+import business.Account;
 import business.AccountDirectory;
+import java.awt.CardLayout;
+import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,9 +29,24 @@ public class ManageAccountJPanel extends javax.swing.JPanel {
         initComponents();
         this.accountDirectory = accountDirectory;
         this.userProcessContainer = userProcessContainer;
+        populateTable();
         
     }
 
+    private void populateTable(){
+        DefaultTableModel dtm = (DefaultTableModel) accountsTbl.getModel();
+        dtm.setRowCount(0);
+        
+        for(Account a: this.accountDirectory.getAccountList()){
+            Object[] row = new Object[4];
+            row[0] = a;
+            row[1] = a.getRoutingNumber();
+            row[2] = a.getAccountNumber();
+            row[3] = a.getBalance();
+            
+            dtm.addRow(row);
+        }
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -67,10 +89,25 @@ public class ManageAccountJPanel extends javax.swing.JPanel {
         }
 
         searchBtn.setText("Search");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
 
         viewBtn.setText("View Details");
+        viewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewBtnActionPerformed(evt);
+            }
+        });
 
         deleteBtn.setText("Delete");
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
+            }
+        });
 
         searchTxtField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +116,11 @@ public class ManageAccountJPanel extends javax.swing.JPanel {
         });
 
         backBtn.setText("<< Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -120,6 +162,71 @@ public class ManageAccountJPanel extends javax.swing.JPanel {
     private void searchTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTxtFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchTxtFieldActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer .getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backBtnActionPerformed
+
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = accountsTbl.getSelectedRow();
+        if(selectedRow >= 0){
+            int dialogBtn = JOptionPane.YES_NO_OPTION;
+            int dialogResult = JOptionPane.showConfirmDialog(null, "Would you like to delete the account details?", "Warning", dialogBtn);
+            if(dialogResult == JOptionPane.YES_OPTION){
+                Account acc = (Account) accountsTbl.getValueAt(selectedRow, 0);
+                accountDirectory.deleteAccount(acc);
+                populateTable();
+            }
+        }
+        
+        else{
+            JOptionPane.showMessageDialog(null, "Please select a row from table","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = accountsTbl.getSelectedRow();
+        if(selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row from table", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+                Account acc = (Account)accountsTbl.getValueAt(selectedRow, 0);
+                ViewAccountJPanel panel = new ViewAccountJPanel(userProcessContainer, acc);
+                userProcessContainer.add("ViewAccountJPanel", panel);
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+        }
+    }//GEN-LAST:event_viewBtnActionPerformed
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        // TODO add your handling code here:
+        
+        searchTxtField.setBorder(null);
+
+        if(searchTxtField.getText().isBlank()){
+           JOptionPane.showMessageDialog(this, "Search field is empty!");
+           Border customBorder = new LineBorder(Color.RED, 2);
+           searchTxtField.setBorder(customBorder);
+
+        }
+        
+        Account result = this.accountDirectory.searchAccount(searchTxtField.getText());
+        if(result == null){
+            JOptionPane.showMessageDialog(null, "Account number doesn't exist", "Information", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+        else{
+             ViewAccountJPanel panel = new ViewAccountJPanel(userProcessContainer, result);
+             userProcessContainer.add("ViewAccountJPanel", panel);
+             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+             layout.next(userProcessContainer);
+        }
+    }//GEN-LAST:event_searchBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -17,24 +17,29 @@ import javax.swing.border.LineBorder;
  *
  * @author yash
  */
-
-
-public class CreateAccountJPanel extends javax.swing.JPanel {
+public class ViewAccountJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form CreateAccountJPanel
+     * Creates new form ViewAccountJPanel
      */
 
-    private JPanel userProcessContainer;
-    private AccountDirectory accountDirectory;
-    
-    CreateAccountJPanel(JPanel userProcessContainer, AccountDirectory accountDirectory) {
+     private JPanel userProcessContainer;
+     private Account account;
+    ViewAccountJPanel(JPanel userProcessContainer, Account acc) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.accountDirectory = accountDirectory;
-
+        this.account = acc;
+        populateAccountDetails();
+        saveBtn.setEnabled(false);
+        updateBtn.setEnabled(true);
+        
     }
 
+    private void populateAccountDetails(){
+        accNoTxtField.setText(account.getAccountNumber());
+        bankNameTxtField.setText(account.getBankName());
+        routingNoTxtField.setText(account.getRoutingNumber());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,17 +49,39 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        routingNoTxtField = new javax.swing.JTextField();
+        accNoTxtField = new javax.swing.JTextField();
+        bankNameTxtField = new javax.swing.JTextField();
+        saveBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         routingNoLbl = new javax.swing.JLabel();
         accNoLbl = new javax.swing.JLabel();
         bankNameLbl = new javax.swing.JLabel();
-        balanceLbl = new javax.swing.JLabel();
-        routingNoTxtField = new javax.swing.JTextField();
-        accNoTxtField = new javax.swing.JTextField();
-        bankNameTxtField = new javax.swing.JTextField();
-        balanceTxtField = new javax.swing.JTextField();
-        createBtn = new javax.swing.JButton();
+        updateBtn = new javax.swing.JButton();
+
+        routingNoTxtField.setEnabled(false);
+        routingNoTxtField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                routingNoTxtFieldActionPerformed(evt);
+            }
+        });
+
+        accNoTxtField.setEnabled(false);
+        accNoTxtField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accNoTxtFieldActionPerformed(evt);
+            }
+        });
+
+        bankNameTxtField.setEnabled(false);
+
+        saveBtn.setText("Save");
+        saveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveBtnActionPerformed(evt);
+            }
+        });
 
         backBtn.setText("<< Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -63,7 +90,8 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setText("Create Account");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("View Account");
 
         routingNoLbl.setText("Routing Number");
 
@@ -71,24 +99,10 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
 
         bankNameLbl.setText("Bank Name");
 
-        balanceLbl.setText("Balance");
-
-        routingNoTxtField.addActionListener(new java.awt.event.ActionListener() {
+        updateBtn.setText("Update");
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                routingNoTxtFieldActionPerformed(evt);
-            }
-        });
-
-        accNoTxtField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accNoTxtFieldActionPerformed(evt);
-            }
-        });
-
-        createBtn.setText("Create");
-        createBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createBtnActionPerformed(evt);
+                updateBtnActionPerformed(evt);
             }
         });
 
@@ -99,35 +113,32 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(314, 314, 314)
-                        .addComponent(createBtn))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(321, 321, 321)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(228, 228, 228)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(routingNoLbl)
                             .addComponent(accNoLbl)
                             .addComponent(bankNameLbl)
-                            .addComponent(balanceLbl))
+                            .addComponent(saveBtn, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(51, 51, 51)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(routingNoTxtField)
+                            .addComponent(routingNoTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
                             .addComponent(accNoTxtField)
                             .addComponent(bankNameTxtField)
-                            .addComponent(balanceTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(updateBtn)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(backBtn)))
+                        .addComponent(backBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(289, 289, 289)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(311, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(routingNoLbl)
                     .addComponent(routingNoTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -139,13 +150,11 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bankNameLbl)
                     .addComponent(bankNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(balanceLbl)
-                    .addComponent(balanceTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addComponent(createBtn)
-                .addGap(18, 18, 18)
+                    .addComponent(saveBtn)
+                    .addComponent(updateBtn))
+                .addGap(70, 70, 70)
                 .addComponent(backBtn)
                 .addContainerGap(245, Short.MAX_VALUE))
         );
@@ -155,17 +164,15 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_accNoTxtFieldActionPerformed
 
-    private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
+    private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         // TODO add your handling code here:
+        String routingNumber = routingNoTxtField.getText();
+        String accountNumber = accNoTxtField.getText();
+        String bankName = bankNameTxtField.getText();
         
         routingNoTxtField.setBorder(null);
         accNoTxtField.setBorder(null);
         bankNameTxtField.setBorder(null);
-        balanceTxtField.setBorder(null);
-
-        String routingNumber = routingNoTxtField.getText();
-        String accountNumber = accNoTxtField.getText();
-        String bankName = bankNameTxtField.getText();
         
         if(routingNumber.matches(".*[a-zA-Z]+.*")){
             Border customBorder = new LineBorder(Color.RED, 2);
@@ -181,13 +188,7 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please rectify the errors in the highlighted fields!");
             return;
         }
-        
-        if(balanceTxtField.getText().matches(".*[a-zA-Z]+.*")){
-            Border customBorder = new LineBorder(Color.RED, 2);
-            balanceTxtField.setBorder(customBorder);
-            JOptionPane.showMessageDialog(this, "Please rectify the errors in the highlighted fields!");
-            return;
-        }
+
         
         if(bankName.matches(".*\\d+.*")){
             Border customBorder = new LineBorder(Color.RED, 2);
@@ -196,27 +197,40 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
             return;
         }
         
-        if(routingNumber.isBlank() || accountNumber.isBlank() || bankName.isBlank() || balanceTxtField.getText().isBlank()){
+        if(routingNumber.isBlank() || accountNumber.isBlank() || bankName.isBlank()){
              JOptionPane.showMessageDialog(this, "Fields are empty!");
-             return;
+            return;
         }
         
-        Account account = accountDirectory.addAccount();
-
         account.setAccountNumber(accountNumber);
-        account.setBalance(Integer.parseInt(balanceTxtField.getText()));
         account.setBankName(bankName);
         account.setRoutingNumber(routingNumber);
+
+        saveBtn.setEnabled(false);
+        updateBtn.setEnabled(true);
         
-        JOptionPane.showMessageDialog(this, "Account Successfully created!");
-    }//GEN-LAST:event_createBtnActionPerformed
+        routingNoTxtField.setEnabled(false);
+        accNoTxtField.setEnabled(false);
+        bankNameTxtField.setEnabled(false);
+        
+        JOptionPane.showMessageDialog(this, "Account updated successfully!");
+    }//GEN-LAST:event_saveBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer .getLayout();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backBtnActionPerformed
+
+    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+        // TODO add your handling code here:
+        routingNoTxtField.setEnabled(true);
+        accNoTxtField.setEnabled(true);
+        bankNameTxtField.setEnabled(true);
+        saveBtn.setEnabled(true);
+        updateBtn.setEnabled(false);
+    }//GEN-LAST:event_updateBtnActionPerformed
 
     private void routingNoTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_routingNoTxtFieldActionPerformed
         // TODO add your handling code here:
@@ -227,13 +241,12 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel accNoLbl;
     private javax.swing.JTextField accNoTxtField;
     private javax.swing.JButton backBtn;
-    private javax.swing.JLabel balanceLbl;
-    private javax.swing.JTextField balanceTxtField;
     private javax.swing.JLabel bankNameLbl;
     private javax.swing.JTextField bankNameTxtField;
-    private javax.swing.JButton createBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel routingNoLbl;
     private javax.swing.JTextField routingNoTxtField;
+    private javax.swing.JButton saveBtn;
+    private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
 }
