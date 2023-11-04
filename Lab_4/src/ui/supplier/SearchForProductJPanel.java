@@ -8,7 +8,9 @@ package ui.supplier;
 import model.Product;
 import model.Supplier;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import model.ProductCatalog;
 
 
 
@@ -20,6 +22,7 @@ public class SearchForProductJPanel extends javax.swing.JPanel {
 
    JPanel workArea;
    Supplier supplier;
+   ProductCatalog productCatalog;
     
     /** Creates new form CreateProductJPanel */
     public SearchForProductJPanel(JPanel workArea, Supplier supplier) {
@@ -27,6 +30,7 @@ public class SearchForProductJPanel extends javax.swing.JPanel {
         initComponents();
         this.workArea = workArea;
         this.supplier = supplier;
+        this.productCatalog = supplier.getProductCatalog();
     }
 
     /** This method is called from within the constructor to
@@ -103,7 +107,16 @@ public class SearchForProductJPanel extends javax.swing.JPanel {
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         // TODO add your handling code here:
+        int inputID = Integer.parseInt(idField.getText());
         
+        if(this.productCatalog.searchProduct(inputID) != null){
+            JOptionPane.showMessageDialog(this, "Product found!!","Information",JOptionPane.INFORMATION_MESSAGE);
+
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Product not found!!","Error",JOptionPane.ERROR_MESSAGE);
+        }
+
         
 }//GEN-LAST:event_searchButtonActionPerformed
 

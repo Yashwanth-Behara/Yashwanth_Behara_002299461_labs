@@ -166,14 +166,16 @@ public class ManageProductCatalogJPanel extends javax.swing.JPanel {
         }
         Product selectedProduct = (Product) tblProducts.getValueAt(row, 0);
         ViewProductDetailJPanel vpdjp = new ViewProductDetailJPanel(workArea, selectedProduct);
+        
+        workArea.add("ViewProductDetailJPanel", vpdjp);
         CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.previous(workArea);
+        layout.next(workArea);
         
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         CreateNewProductJPanel cnpjp = new CreateNewProductJPanel(workArea, supplier);
-        workArea.add("SupplierWorkAreaJPanel", cnpjp);
+        workArea.add("CreateNewProductJPanel", cnpjp);
         CardLayout layout = (CardLayout) workArea.getLayout();
         layout.next(workArea);
     }//GEN-LAST:event_btnCreateActionPerformed
