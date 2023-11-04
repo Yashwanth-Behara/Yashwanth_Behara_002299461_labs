@@ -6,6 +6,7 @@
 package model;
 
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -19,7 +20,7 @@ public class Product {
 
     private ArrayList<Feature> features;
 
-
+    private ImageIcon logoImage;
     private static int count = 0;
     
     public Product() {
@@ -29,6 +30,15 @@ public class Product {
         features = new ArrayList<Feature>();
         
     }
+    
+    public ImageIcon getLogoImage() {
+        return logoImage;
+    }
+
+    public void setLogoImage(ImageIcon logoImage) {
+        this.logoImage = logoImage;
+    }
+
 
     public String getName() {
         return name;
