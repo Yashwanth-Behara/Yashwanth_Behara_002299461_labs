@@ -3,10 +3,9 @@
  * and open the template in the editor.
  */
 
-/*
- * AddSupplier.java
+/**
  *
- * Created on Oct 1, 2011, 11:55:16 AM
+ * @author  Yashwanth
  */
 
 package ui.admin;
@@ -29,10 +28,6 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
-/**
- *
- * @author Rushabh
- */
 public class AddSupplier extends javax.swing.JPanel {
 
     private JPanel workArea;

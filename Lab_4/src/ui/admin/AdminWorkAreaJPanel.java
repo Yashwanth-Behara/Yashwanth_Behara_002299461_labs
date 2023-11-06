@@ -14,7 +14,7 @@ import ui.LoginScreen;
 
 /**
  *
- * @author  Rushabh
+ * @author  Yashwanth
  */
 public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     JPanel mainWorkArea;
@@ -26,7 +26,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         this.mainWorkArea = mainWorkArea;
         this.supplierDirectory = supplierDirectory;
         
-        lblWelcome.setText("Welcome to Lab 4!");
+        lblWelcome.setText("Welcome to portal!");
     }
     
     /** This method is called from within the constructor to

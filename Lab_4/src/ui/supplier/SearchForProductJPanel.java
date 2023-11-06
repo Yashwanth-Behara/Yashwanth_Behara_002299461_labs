@@ -13,10 +13,9 @@ import javax.swing.JPanel;
 import model.ProductCatalog;
 
 
-
 /**
  *
- * @author Rushabh
+ * @author  Yashwanth
  */
 public class SearchForProductJPanel extends javax.swing.JPanel {
 

@@ -3,10 +3,9 @@
  * and open the template in the editor.
  */
 
-/*
- * ManageSuppliers.java
+/**
  *
- * Created on Oct 1, 2011, 11:09:26 AM
+ * @author  Yashwanth
  */
 
 package ui.admin;
